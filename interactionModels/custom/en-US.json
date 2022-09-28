@@ -1,0 +1,112 @@
+{
+  "interactionModel": {
+    "languageModel": {
+      "invocationName": "lunar landing",
+      "intents": [
+        {
+          "name": "AMAZON.CancelIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.HelpIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.StopIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.NavigateHomeIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.FallbackIntent",
+          "samples": []
+        },
+        {
+          "name": "Play",
+          "slots": [],
+          "samples": [
+            "play again",
+            "play"
+          ]
+        },
+        {
+          "name": "Calculation",
+          "slots": [
+            {
+              "name": "burnno",
+              "type": "AMAZON.NUMBER",
+              "multipleValues": {
+                "enabled": false
+              }
+            }
+          ],
+          "samples": [
+            "Burn {burnno} litre",
+            "Burn {burnno} litres",
+            "Burn {burnno} L",
+            "{burnno} litre",
+            "{burnno} litres",
+            "{burnno} L",
+            "Burn {burnno}",
+            "{burnno}"
+          ]
+        }
+      ],
+      "types": []
+    },
+    "dialog": {
+      "intents": [
+        {
+          "name": "Calculation",
+          "confirmationRequired": false,
+          "prompts": {},
+          "slots": [
+            {
+              "name": "burnno",
+              "type": "AMAZON.NUMBER",
+              "elicitationRequired": false,
+              "confirmationRequired": false,
+              "prompts": {},
+              "validations": [
+                {
+                  "type": "isLessThan",
+                  "prompt": "Slot.Validation.1349209342540.1213223340019.761833815054",
+                  "value": "101"
+                },
+                {
+                  "type": "isGreaterThan",
+                  "prompt": "Slot.Validation.1349209342540.1213223340019.1200157423430",
+                  "value": "0"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "delegationStrategy": "ALWAYS"
+    },
+    "prompts": [
+      {
+        "id": "Slot.Validation.1349209342540.1213223340019.761833815054",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "Please enter the amount of the fuel to be burned between one and hundred"
+          }
+        ]
+      },
+      {
+        "id": "Slot.Validation.1349209342540.1213223340019.1200157423430",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "Please enter the amount of the fuel to be burned between one and hundred"
+          }
+        ]
+      }
+    ]
+  },
+  "version": "33"
+}
